@@ -10,7 +10,7 @@ void main(void)
     scanf("%d", &annee);
     }while (annee >= 3999 || annee <= 1512);
     test = annee%4;
-    if test == 0
+    if (test == 0)
     {
         printf("Elle est bissextile !");
     }

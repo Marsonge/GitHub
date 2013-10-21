@@ -5,7 +5,7 @@ void main(void)
 char chiffre;
 do {
     printf("Ecrire un chiffre.\n");
-    scanf("%c", &chiffre);
+    scanf(" %c", &chiffre);
 
     switch (chiffre)
     {
@@ -39,6 +39,8 @@ do {
     case '0':
         printf("ZERO\n");
         break;
+    default:
+        printf("Erreur.\n");
     }
 
 

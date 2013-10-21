@@ -5,7 +5,7 @@ void main(void)
 
     int nombre, nombremod, i;
     nombremod = 1;
-    printf("Saisir le truc là.\n");
+    printf("Saisir le nombre.\n");
     do
     {
         scanf("%d", &nombre);

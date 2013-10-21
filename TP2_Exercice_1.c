@@ -7,11 +7,7 @@ void main(void)
     int entier, table, i, k;
     printf("Saisir l'entier :\n");
     scanf("%d", &entier);
-    for (k=0;k<=10;k++){
-    if (isdigit(str[k]))
-    continue;
-    else
-    goto end;
+
     }
     {
         for (i=0;i<=100;i++)
@@ -20,11 +16,17 @@ void main(void)
             printf("%d*%d=%d\n", entier, i, table);
         }
     }
+    i = 0;
+    while (i<=100)
+    {
+    table = entier*i;
+    printf("%d*%d=%d\n", entier, i, table);
+    i++;
+    }
 */
     //2)
-    int entier, table, i, j;
-    //printf("Saisir l'entier :\n");
-    //scanf("%d", &entier);
+    int table, i, j;
+
     printf("*    1   2   3   4   5   6   7   8   9  10 \n");
     for (i=1;i<=10;i++)
     {
