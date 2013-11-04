@@ -16,16 +16,18 @@ void main(void)
     char choixProgChar = '#';
     do {
     int test;
-    int choixProgram;
+    int choixProgram; // Diverses variables de choix dans les switchs
     int choixProgramA;
     int choixProgramB;
     printf("© Tim Industries ©\n");
-    printf("Bienvenue sur TimIndustries 0.01.\n\n\n");
+    printf("Bienvenue sur TimIndustries 1.0.\n\n\n");
     printf("Pour profiter de nos services, veuillez faire un choix :\n\n\n");
     printf("1* Table de multiplication d'un entier.\n");
     printf("2* Factorielle d'un entier.\n");
     printf("3* Savoir les annees bissextiles.\n");
     printf("4* Afficher les chiffres en lettres.\n");
+    printf("5* Connaitre le nombre de solutions d'un polynome.\n");
+    printf("6* Afficher l'heure une seconde apres.\n");
     printf("999* Quitter.\n");
     scanf("%d", &choix);
     switch (choix)
@@ -75,7 +77,7 @@ void main(void)
     case 5 :
         printf("\n\n Veuillez indiquer les trois coefficients :\n");
         scanf("%d %d %d", &choixProgram, &choixProgramA, &choixProgramB);
-        int test = nombreSolution(choixProgram, choixProgramA, choixProgramB);
+        test = nombreSolution(choixProgram, choixProgramA, choixProgramB);
         switch (test)
         {
         case 1 :
@@ -197,6 +199,8 @@ void nombreLettre(char chiffre)
     case '0':
         printf("\nZERO\n");
         break;
+    case '#':
+        break;
     default:
         printf("\nErreur.\n");
     }
@@ -241,41 +245,124 @@ int nombreSolution (int a, int b, int c)
 void secondeSuivante(int heure)
 {
     int heuretest;
+    int heurecomplete; //Variable pour completer en cas de 235959 par exemple, qui affichera 000000 et pas 0
     heuretest = heure%100;
     if (heuretest >= 60)
     {
-        printf("Seconde");
+        printf("Les secondes sont superieures a 60 !\n\n\n");
         return 0;
     }
     heuretest = (heure/100)%100;
     if (heuretest >= 60)
     {
-        printf("Minute");
+        printf("Les minutes sont superieures a 60 !\n\n\n");
         return 0;
 
     }
     heuretest = (heure/10000);
     if (heuretest >= 24)
     {
-        printf("Heure");
+        printf("Les heures sont superieures a 24 !\n\n\n");
         return 0;
     }
     heure++;
-    if (heure >= 60)
+    heuretest = heure%100;
+    if (heuretest >= 60)
     {
         heure = heure + 40;
     }
-    heuretest = (heure/100)%100;
-    if (heuretest >= 60)
+    heuretest = heure%100;
+    if (heuretest == 0)
     {
-        heure = heure + 4000;
+        heuretest = (heure/100)%100;
+        if (heuretest >= 60)
+        {
+            heure = heure + 4000;
+        }
+        heuretest = (heure/100)%100;
+        if (heuretest == 0)
+        {
+            heuretest = (heure/10000);
+            if (heuretest >= 24)
+            {
+                heure = heure - 240000;
+            }
+            heuretest = (heure/10000);
+            if (heuretest == 0)
+            {
+                printf("000000\n\n\n");
+            }
+            else
+            {
+                printf("%d0000\n\n\n", heuretest);
+            }
+        }
+        else
+        {
+            heuretest = (heure/10000);
+            if (heuretest >= 24)
+            {
+                heure = heure - 240000;
+            }
+            heuretest = (heure/10000);
+            if (heuretest == 0)
+            {
+                heurecomplete = (heure/100)%100;
+                printf("00%d00\n\n\n", heurecomplete);
+            }
+            else
+            {
+                heurecomplete = (heure/100)%100;
+                printf("%d%d00\n\n\n", heuretest, heurecomplete);
+            }
+        }
     }
-    heuretest = (heure/10000);
-    if (heuretest >= 24)
+    else
     {
-        heure = heure - 240000;
+         heuretest = (heure/100)%100;
+        if (heuretest >= 60)
+        {
+            heure = heure + 4000;
+        }
+        heuretest = (heure/100)%100;
+        if (heuretest == 0)
+        {
+            heuretest = (heure/10000);
+            if (heuretest >= 24)
+            {
+                heure = heure - 240000;
+            }
+            heuretest = (heure/10000);
+            if (heuretest == 0)
+            {
+                heuretest = heure%100;
+                printf("0000%d\n\n\n", heuretest);
+            }
+            else
+            {
+                heurecomplete = heure%100;
+                printf("%d00%d\n\n\n", heuretest, heurecomplete);
+            }
+        }
+        else
+        {
+            heuretest = (heure/10000);
+            if (heuretest >= 24)
+            {
+                heure = heure - 240000;
+            }
+            heuretest = (heure/10000);
+            if (heuretest == 0)
+            {
+                heurecomplete = (heure/100)%100;
+                heuretest = heure%100;
+                printf("00%d%d\n\n\n", heurecomplete, heuretest);
+            }
+            else
+            {
+                printf("%d\n\n\n", heure);
+            }
+        }
     }
-    printf("%d", heure);
-
 }
 
