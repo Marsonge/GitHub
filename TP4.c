@@ -46,14 +46,22 @@ void main(void)
         break;
     case 4 :
         inverser_tableau(tableau, NB_ELEMENTS);
+        break;
     case 5 :
         printf("\nLe maximum est de %d.\n", tableau_maxi(tableau, NB_ELEMENTS));
+        break;
     case 6 :
         tableau_maximini(tableau, NB_ELEMENTS, tableaumin);
+        break;
     case 7 :
         deux_plus_grandes(tableau, NB_ELEMENTS);
+        break;
     case 8 :
         ordre_croissant(tableau, NB_ELEMENTS);
+        break;
+    case 42 :
+        printf("\n42, 42, la reponse est 42 !\n\n");
+        break;
     case 999 :
         break;
     default :
